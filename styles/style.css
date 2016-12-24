@@ -1,9 +1,37 @@
-body {
+html, body {
+    background: linear-gradient(#080808, #222);
+
+    height: 100%;
+
     margin: 0;
 }
 
-input {
-    width: 70px;
+.container {
+    margin: 0 auto;
+    width: 720px;
+}
+
+.controls {
+    display: inline;
+    float: right;
+    margin: 0 auto;
+}
+
+button {
+    background: #1c76bb;
+
+    color: white;
+    font-size: 16px;
+
+    border: 0;
+    border-radius: 2px;
+
+    height: 64px;
+    width: 128px;
     margin-top: 8px;
     margin-bottom: 8px;
+}
+
+.button-danger {
+    background: #bb1c1c;
 }
