@@ -1,5 +1,5 @@
-require(['angle', 'draw', 'point', 'transforms', 'vector', 'utils/assert'],
-  function(angle, draw, point, transforms, vector, assert) {
+require(['angle', 'draw', 'point', 'transforms', 'vector'],
+  function(angle, draw, point, transforms, vector) {
   var pauseBut = document.getElementById('pauseBut');
 
   var canvas = document.getElementById('paper');
