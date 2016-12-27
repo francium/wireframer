@@ -5,6 +5,10 @@ define(function() {
     this.height = height;
   }
 
+  Draw.prototype.clearCanvas = function() {
+    this.ctx.clearRect(0, 0, this.height, this.width);
+  }
+
   Draw.prototype.clearRect = function(x0, y0, x1, y1) {
       this.ctx.clearRect(x0, y0, x1, y1);
   }
@@ -18,11 +22,24 @@ define(function() {
     ctx.fill();
   }
 
-  Draw.prototype.line = function(from, to, color) {
-    var x0 = from.x + this.width/2;
-    var y0 = -from.y + this.height/2;
-    var x1 = to.x + this.width/2;
-    var y1 = -to.y + this.height/2;
+  Draw.prototype.line = function(from, to, color, scale) {
+    var x0 = from.x;
+    var y0 = -from.y;
+    var x1 = to.x;
+    var y1 = -to.y;
+
+    if (scale != undefined) {
+      x0 *= scale;
+      x1 *= scale;
+      y0 *= scale;
+      y1 *= scale;
+    }
+
+    x0 += this.width/2;
+    y0 += this.height/2;
+    x1 += this.width/2;
+    y1 += this.height/2;
+
     this.ctx.strokeStyle = color;
     this.ctx.lineWidth = 0.5;
     this.ctx.beginPath();

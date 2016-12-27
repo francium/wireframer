@@ -1,4 +1,12 @@
 define(['angle'], function(angle) {
+  var moveX = function(p, dist) {
+    p.x += dist;
+  }
+
+  var moveY = function(p, dist) {
+    p.y += dist;
+  }
+
   var rotatePointX = function(p, rad) {
     var x = p.x;
     var y = p.y;
@@ -39,18 +47,20 @@ define(['angle'], function(angle) {
     rotatePointZ(v.h, rad);
   }
 
-  var applyOrthoPoint = function(pt) {
+  var rotateOrthoPoint = function(pt) {
     rotatePointY(pt, angle.toRad(45));
     rotatePointX(pt, angle.toRad(35.264));
   }
 
   return {
+    moveX: moveX,
+    moveY: moveY,
     rotatePointX: rotatePointX,
     rotatePointY: rotatePointY,
     rotatePointZ: rotatePointZ,
     rotateVectorX: rotateVectorX,
     rotateVectorY: rotateVectorY,
     rotateVectorZ: rotateVectorZ,
-    applyOrthoPoint: applyOrthoPoint
+    rotateOrthoPoint: rotateOrthoPoint
   }
 });
