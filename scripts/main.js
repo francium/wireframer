@@ -1,6 +1,7 @@
-require(['draw', 'model'],
-  function(draw, model) {
-  var pauseBut = document.getElementById('pauseBut');
+require(['draw', 'model'], function(draw, model) {
+  var modelSelector = document.getElementById('modelSelector');
+
+  var modelFile = '/res/obj/teapot.obj';
 
   var canvas = document.getElementById('paper');
   var ctx = canvas.getContext('2d');
@@ -18,16 +19,9 @@ require(['draw', 'model'],
 
   var object;
 
-  pauseBut.onclick = (e) => {
-    if (!paused) {
-      pauseBut.className += 'button-danger';
-      pauseBut.textContent = 'start';
-    } else {
-      pauseBut.className = '';
-      pauseBut.textContent = 'pause';
-    }
-
-    paused = !paused;
+  modelSelector.onchange = (e) => {
+    modelFile = modelSelector.value;
+    render();
   }
 
   function run() {
@@ -38,15 +32,20 @@ require(['draw', 'model'],
     }
   }
 
-  var req = new XMLHttpRequest();
-  req.open('GET', 'res/obj/teapot.obj');
-  req.addEventListener('load', function() {
-    object = new model.Model(req.responseText);
-    object.moveY(-2);
-    object.rotateY(-PI/6);
-    object.applyOrtho();
-    object.render(drawer, 100);
-    //setInterval(run, 1000/FPS);
-  });
-  req.send();
+  function render() {
+    drawer.clearCanvas();
+
+    var req = new XMLHttpRequest();
+    req.open('GET', modelFile);
+    req.addEventListener('load', function() {
+      object = new model.Model(req.responseText);
+      object.moveY(-2);
+      object.rotateY(-PI/6);
+      object.applyOrtho();
+      object.render(drawer, 50);
+    });
+    req.send();
+  }
+
+  render();
 });

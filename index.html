@@ -7,14 +7,19 @@
   <body>
     <div class="container">
       <div class="canvas">
-        <canvas id="paper" height="480" width="720">
+        <canvas id="paper" width="800" height="600">
           Canvas not supported
         </canvas>
       </div>
 
-      <!-- <div class="controls"> -->
-      <!--   <button id="pauseBut">pause</button> -->
-      <!-- </div> -->
+      <div class="controls">
+        <select id="modelSelector">
+          <option value="/res/obj/teapot.obj">Teapot</option>
+          <option value="/res/obj/lamp.obj">Lamp</option>
+          <option value="/res/obj/cow.obj">Cow</option>
+          <option value="/res/obj/car.obj">Car</option>
+        </select>
+      </div>
     </div> <!-- container -->
 
       <script data-main="scripts/main.js" src="dist/require.js"></script>

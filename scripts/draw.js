@@ -6,7 +6,7 @@ define(function() {
   }
 
   Draw.prototype.clearCanvas = function() {
-    this.ctx.clearRect(0, 0, this.height, this.width);
+    this.ctx.clearRect(0, 0, this.width, this.height);
   }
 
   Draw.prototype.clearRect = function(x0, y0, x1, y1) {
