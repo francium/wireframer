@@ -1,7 +1,7 @@
 require(['draw', 'model'], function(draw, model) {
   var modelSelector = document.getElementById('modelSelector');
 
-  var modelFile = '/res/obj/teapot.obj';
+  var modelFile = 'res/obj/teapot.obj';
 
   var canvas = document.getElementById('paper');
   var ctx = canvas.getContext('2d');
