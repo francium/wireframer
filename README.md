@@ -1,7 +1,5 @@
-[![Code Climate](https://codeclimate.com/github/francium/wireframer/badges/gpa.svg)](https://codeclimate.com/github/francium/wireframer)
-
 # wireframer
-Demo:  https://francium.github.io/wireframer
+[![Code Climate](https://codeclimate.com/github/francium/wireframer/badges/gpa.svg)](https://codeclimate.com/github/francium/wireframer)
 
 Small CPU powered renderer written in JS. Currently only renders in wireframe.
 
